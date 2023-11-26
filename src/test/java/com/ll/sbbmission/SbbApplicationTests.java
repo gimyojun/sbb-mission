@@ -1,30 +1,41 @@
 package com.ll.sbbmission;
 
+import com.ll.sbbmission.answer.repository.AnswerRepository;
+import com.ll.sbbmission.question.entity.Question;
+import com.ll.sbbmission.question.repository.QuestionRepository;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class SbbApplicationTests {
-//    @Autowired
-//    private QuestionRepository questionRepository;
-//    @Autowired
-//    private AnswerRepository answerRepository;
-//
-//
-//    @Test()
-//    void testJpa(){
-//        Question q1 = new Question();
-//        q1.setSubject("sbb가 무엇인가요?");
-//        q1.setContent("sbb에 대해서 알고싶습니다");
-//        q1.setCreateDate(LocalDateTime.now());
-//        this.questionRepository.save(q1);
-//    }
-//    @Test
-//    @DisplayName("jpa 테스트 1")
-//    void testJpa1() {
-//        List<Question> all = this.questionRepository.findAll();
-//        assertEquals(1, all.size());
-//    }
-//
+    @Autowired
+    private QuestionRepository questionRepository;
+    @Autowired
+    private AnswerRepository answerRepository;
+
+
+    @Test()
+    void testJpa(){
+        Question q1 = new Question();
+        q1.setSubject("sbb가 무엇인가요?");
+        q1.setContent("sbb에 대해서 알고싶습니다");
+        q1.setCreateDate(LocalDateTime.now());
+        this.questionRepository.save(q1);
+    }
+    @Test
+    @DisplayName("jpa 테스트 1")
+    void testJpa1() {
+        List<Question> all = this.questionRepository.findAll();
+        assertEquals(1, all.size());
+    }
+
 //    @Test
 //    @DisplayName("jpa 테스트 2")
 //    void testJpa2(){
@@ -86,7 +97,7 @@ public class SbbApplicationTests {
 //        a.setCreateDate(LocalDateTime.now());
 //        this.answerRepository.save(a);
 //    }
-//    @Transactional
+//
 //    @Test
 //    @DisplayName("jpa 테스트 9")
 //    void testJpa9() {
